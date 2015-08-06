@@ -61,13 +61,13 @@ public class MalhaLogisticaServiceImpl implements MalhaLogisticaService {
     public Map<String, List<MalhaLogistica>> findMalhasByPontosOrigem(Set<String> pontosOrigem) {
 		 List<MalhaLogistica> findByPontoOrigemIn = repository.findByPontoOrigemIn(pontosOrigem);
          Map<String, List<MalhaLogistica>> malhasPorOrigem = new HashMap<>();
-         // Para cada malha encontrada, adiciona chave 
+          
          for (MalhaLogistica malhaLogistica : findByPontoOrigemIn) {
-        	 //primeiramente adiciona a chave
+        
         	 if (!malhasPorOrigem.containsKey(malhaLogistica.getPontoOrigem())) {
         		 malhasPorOrigem.put(malhaLogistica.getPontoOrigem(), new ArrayList<MalhaLogistica>());
              }
-        	 // para depois setar a malha
+        
         	 malhasPorOrigem.get(malhaLogistica.getPontoOrigem()).add(malhaLogistica);
          }
          return malhasPorOrigem;

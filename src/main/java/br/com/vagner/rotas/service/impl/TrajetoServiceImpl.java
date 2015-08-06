@@ -79,9 +79,6 @@ public class TrajetoServiceImpl implements TrajetoService{
 		while(!rotas.encontrouMelhorRota()){
 			Map<String, List<MalhaLogistica>> malhas  = malhaLogisticaService.findMalhasByPontosOrigem(rotas.montarPesquisa());
 			
-			/*if(CollectionUtils.isEmpty(malhasEncontradas) && !rota.getLastPontoDestino().equalsIgnoreCase(rota.getPontoDestino())){
-				rota.cancelarRota();
-			}*/
 			rotas = rotas.adicionarMalhas(rotas, malhas);
 		}
 		
@@ -90,13 +87,13 @@ public class TrajetoServiceImpl implements TrajetoService{
 		
 	@Override
 	public Rotas criarNovasRotas(Trajeto pesquisa ){
-		// busca pontosOrigem  igual ao da pesquisa
+		
 				List<MalhaLogistica> pontosOrigem = malhaLogisticaService.findByPontoOrigem(pesquisa.getPontoOrigem());
 		Rotas rotas = new Rotas(pesquisa.getPontoOrigem(), pesquisa.getPontoDestino());
-		//Varre cada pontoOrigem encontrado
+		
 				for (MalhaLogistica malhaLogistica : pontosOrigem) {
 					Rota rota = new Rota(pesquisa.getPontoOrigem(), pesquisa.getPontoDestino());
-					//Adiciona a primeira MalhaLogistica
+		
 					rota.addMalhaLogistica(malhaLogistica);
 					rotas.addRota(rota);
 				}
