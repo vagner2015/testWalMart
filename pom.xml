@@ -149,9 +149,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- JSON -->
-		<!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-mapper-asl</artifactId> 
-			<version>${jackson.version}</version> </dependency> -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -185,7 +182,7 @@
 		</repository>
 	</repositories>
 	<build>
-		<finalName>logistica-api</finalName>
+		<finalName>rotas</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
